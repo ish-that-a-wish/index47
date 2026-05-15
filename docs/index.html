@@ -6,24 +6,80 @@
     <title>Index47</title>
 
     <style>
+        :root {
+            --bg1: #0b1220;
+            --bg2: #05070d;
+            --text: white;
+            --subtext: #cfd8ff;
+            --phrase: #92a3ef;
+            --input-bg: rgba(10, 15, 25, 0.75);
+            --input-border: rgba(0,140,255,0.4);
+            --suggest-bg: rgba(10, 15, 25, 0.92);
+            --grid: rgba(255,255,255,0.03);
+        }
+
+        body.light-mode {
+            --bg1: #edf3ff;
+            --bg2: #ffffff;
+            --text: #0b1220;
+            --subtext: #1f2a4d;
+            --phrase: #3656c9;
+            --input-bg: rgba(255,255,255,0.8);
+            --input-border: rgba(0,110,255,0.3);
+            --suggest-bg: rgba(255,255,255,0.95);
+            --grid: rgba(0,0,0,0.04);
+        }
+
         body {
             margin: 0;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, #0b1220 0%, #05070d 100%);
+            background: radial-gradient(circle at center, var(--bg1) 0%, var(--bg2) 100%);
             font-family: Arial, sans-serif;
-            color: white;
+            color: var(--text);
             overflow: hidden;
+            transition: 0.4s ease;
+        }
+
+        /* ✨ GALAXY */
+        .galaxy {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.9;
+            box-shadow: 0 0 10px rgba(0,140,255,0.8);
+            transition: transform 0.12s linear;
+        }
+
+        .mouse-glow {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle,
+                rgba(0,140,255,0.16),
+                transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            filter: blur(40px);
         }
 
         .grid-lines {
             position: absolute;
             width: 200%;
             height: 200%;
-            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-image:
+                linear-gradient(var(--grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid) 1px, transparent 1px);
             background-size: 70px 70px;
             transform: rotate(25deg);
             top: -50%;
@@ -32,11 +88,44 @@
             pointer-events: none;
         }
 
+        /* 🔥 TOP BAR */
+        .top-bar {
+            position: absolute;
+            top: 22px;
+            right: 24px;
+            display: flex;
+            gap: 12px;
+            z-index: 20;
+        }
+
+        .top-btn {
+            padding: 11px 15px;
+            border-radius: 14px;
+            border: 1px solid rgba(0,140,255,0.25);
+            background: rgba(15,20,30,0.65);
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            backdrop-filter: blur(12px);
+        }
+
+        body.light-mode .top-btn {
+            background: rgba(255,255,255,0.8);
+            color: #111;
+        }
+
+        .top-btn:hover {
+            background: rgba(0,140,255,0.15);
+            transform: translateY(-2px);
+        }
+
         .container {
             text-align: center;
             transform: scale(0.7142857);
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .logo-wrapper {
@@ -68,15 +157,15 @@
             margin-top: 10px;
             font-size: 40px;
             letter-spacing: 6px;
-            color: #cfd8ff;
+            color: var(--subtext);
         }
+
         .phrase {
             margin-top: 7.5px;
             font-size: 20px;
             letter-spacing: 6px;
-            color: #92a3ef;
-                        filter: drop-shadow(0 0 25px rgba(0,140,255,0.5));
-
+            color: var(--phrase);
+            filter: drop-shadow(0 0 25px rgba(0,140,255,0.5));
         }
 
         .search-bar {
@@ -89,9 +178,9 @@
             max-width: 85vw;
             padding: 22px 26px;
             border-radius: 18px;
-            border: 1px solid rgba(0,140,255,0.4);
-            background: rgba(10, 15, 25, 0.75);
-            color: white;
+            border: 1px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text);
             font-size: 20px;
             outline: none;
             box-shadow: 0 0 35px rgba(0,140,255,0.2);
@@ -112,7 +201,7 @@
             width: 600px;
             max-width: 85vw;
             margin-top: 10px;
-            background: rgba(10, 15, 25, 0.92);
+            background: var(--suggest-bg);
             border: 1px solid rgba(0,140,255,0.25);
             border-radius: 14px;
             overflow: hidden;
@@ -127,7 +216,7 @@
             cursor: pointer;
             text-align: left;
             font-size: 15px;
-            color: rgba(220,230,255,0.85);
+            color: var(--text);
             transition: 0.2s;
         }
 
@@ -139,7 +228,25 @@
 
 <body>
 
+<div class="galaxy" id="galaxy"></div>
+<div class="mouse-glow" id="mouseGlow"></div>
+
 <div class="grid-lines"></div>
+
+<!-- 🔥 TOP RIGHT -->
+<div class="top-bar">
+
+    <button class="top-btn" onclick="toggleTheme()">
+        ☀️ / 🌙
+    </button>
+
+    <a class="top-btn"
+       href="https://github.com/index-47/index47"
+       target="_blank">
+        GitHub
+    </a>
+
+</div>
 
 <div class="container">
 
@@ -150,8 +257,6 @@
 
     <div class="title">INDEX47</div>
     <div class="phrase">Your FTC glossary by team 13100</div>
-
-
 
     <div class="search-bar">
         <input id="search"
@@ -192,7 +297,7 @@
             page: "lut.html",
             desc: "Lookup Table"
         }
-    // Add your search in the same format as above, replace desc with short description if not acroynym
+    // Add your search in the same format as above
     };
 
     function showSuggestions() {
@@ -207,7 +312,8 @@
         }
 
         const matches = Object.keys(pages).filter(key =>
-            key.includes(input) || pages[key].desc.toLowerCase().includes(input)
+            key.includes(input) ||
+            pages[key].desc.toLowerCase().includes(input)
         );
 
         if (matches.length === 0) {
@@ -218,7 +324,8 @@
         matches.forEach(match => {
             const item = document.createElement("div");
             item.className = "suggestion-item";
-            item.innerText = `${pages[match].title} — ${pages[match].desc}`;
+            item.innerText =
+                `${pages[match].title} — ${pages[match].desc}`;
 
             item.onclick = () => {
                 window.location.href = pages[match].page;
@@ -232,13 +339,67 @@
 
     function handleEnter(event) {
         if (event.key === "Enter") {
-            const input = document.getElementById("search").value.toLowerCase();
+            const input =
+                document.getElementById("search")
+                .value
+                .toLowerCase();
 
             if (pages[input]) {
                 window.location.href = pages[input].page;
             }
         }
     }
+
+    /* 🌙 LIGHT/DARK MODE */
+    function toggleTheme() {
+        document.body.classList.toggle("light-mode");
+    }
+
+    /* ✨ GALAXY BACKGROUND */
+    const galaxy = document.getElementById("galaxy");
+
+    for (let i = 0; i < 140; i++) {
+
+        const star = document.createElement("div");
+
+        star.classList.add("star");
+
+        const size = Math.random() * 3 + 1;
+
+        star.style.width = size + "px";
+        star.style.height = size + "px";
+
+        star.style.left =
+            Math.random() * window.innerWidth + "px";
+
+        star.style.top =
+            Math.random() * window.innerHeight + "px";
+
+        galaxy.appendChild(star);
+    }
+
+    const stars = document.querySelectorAll(".star");
+    const glow = document.getElementById("mouseGlow");
+
+    document.addEventListener("mousemove", (e) => {
+
+        glow.style.left = e.clientX + "px";
+        glow.style.top = e.clientY + "px";
+
+        const x =
+            (e.clientX / window.innerWidth - 0.5) * 40;
+
+        const y =
+            (e.clientY / window.innerHeight - 0.5) * 40;
+
+        stars.forEach((star, index) => {
+
+            const speed = (index % 6) + 1;
+
+            star.style.transform =
+                `translate(${x / speed}px, ${y / speed}px)`;
+        });
+    });
 </script>
 
 </body>
