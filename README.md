@@ -5,6 +5,7 @@ definitions, or acroynyms. This website simply solves all of these problems!
 
 # CONTRIBUTING
  When contributing... determine whether you want to make a new search, or work on exisiting. If exisiting, you can just skip these steps and make a pull request!
+Watch: for a simple demonstration instead of reading all this
  1. Ask a developer if this is an approved topic
  2. Locate the contributing folder of index47
  3. Open the folder to reveal the template
@@ -18,8 +19,8 @@ definitions, or acroynyms. This website simply solves all of these problems!
 
 ## EMBEDDING LINKS 
  Embedding links can only happen within the text box description, if needed do like so, at any point in the description:
-            REPLACE JUST ftcscout.org WITH LINK, NOT THE QUOTES, the second link paste should not have extra characters
-           (e.g. https://youtube.com/dlkdsjaJ should become youtube.com)
+ Make sure the second link usage, does not have extra characters, just the base url.
+           
             
  <img width="466" height="62" alt="image" src="https://github.com/user-attachments/assets/def1fb60-d108-407e-b7ee-e3504397f70e" />
 
