@@ -8,7 +8,7 @@ definitions, or acroynyms. This website simply solves all of these problems!
  1. Ask a developer if this is an approved topic
  2. Locate the contributing folder of index47
  3. Open the folder to reveal the template
- 4. Copy all of template.html and paste it into a new file, named [Search].html within the docs folder, not contributing
+ 4. Copy all of template.html and paste it into a new file, name it [Search].html within the docs folder, not contributing
  5. All comments on template are to be adapted to your requested search, remove all instances (except html starter) of <!-- and --> 
  6. If links need to be embedded, follow guidelines on line 135 and 136
  7. Please ask questions if confused, do NOT pull request if uncertain
