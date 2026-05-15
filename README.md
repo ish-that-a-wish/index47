@@ -4,7 +4,8 @@ through observations that many people in the ftc community are not always caught
 definitions, or acroynyms. This website simply solves all of these problems!
 
 # CONTRIBUTING
- ### When contributing, use the templete located in contributing, make sure that formatting of text, textboxes, links, and fonts are uniform although this should be implied through the templete
- ### Pick the file in the folder only if you are adding a NEW FILE, if editing old file feel free to skip this step, but inform developers before opening a pull request if this is the case
+ When contributing, use the templete located in contributing, make sure that formatting of text, textboxes, links, and fonts are uniform although this should be implied through the templete
+ Pick the file in the folder only if you are adding a NEW FILE, if editing old file feel free to skip this step, but inform developers before opening a pull request if this is the case
+ After a sucessful contribution, feel free to inform any developer to receive a helper role, you earned it!
 
     
