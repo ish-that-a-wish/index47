@@ -25,8 +25,7 @@ https://github.com/user-attachments/assets/769cd9fc-023f-43be-ad2e-bacbcda5e9d8
 
 # EMBEDDING LINKS 
  Embedding links can **only** happen within the text box description, if needed do like so, at any point in the description:
-** Make sure the second link usage, does not have extra characters, just the base url.
-**           
+ Make sure the second link usage, does not have extra characters, just the base url.
             
  <img width="466" height="62" alt="image" src="https://github.com/user-attachments/assets/def1fb60-d108-407e-b7ee-e3504397f70e" />
 
