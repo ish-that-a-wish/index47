@@ -8,24 +8,23 @@
 
     <style>
 
-        :root {
-            --bg1:#0f1117;
-            --bg2:#090b10;
-            --text:#f5f7ff;
-            --muted:#9aa4c7;
-            --box:rgba(255,255,255,0.04);
-            --border:rgba(255,255,255,0.08);
-            --accent:#4f7cff;
+        :root{
+        --bg1:#0f1117;
+        --bg2:#090b10;
+        --text:#f5f7ff;
+        --muted:#9aa4c7;
+        --box:rgba(255,255,255,0.04);
+        --border:rgba(255,255,255,0.08);
+        --accent:#4f7cff;
         }
 
-        body.light {
-            --bg1:#edf2ff;
-            --bg2:#ffffff;
-            --text:#111827;
-            --muted:#5b6480;
-            --box:rgba(255,255,255,0.75);
-            --border:rgba(0,0,0,0.08);
-            --accent:#4f7cff;
+        body.light{
+        --bg1:#edf2ff;
+        --bg2:#fff;
+        --text:#111827;
+        --muted:#5b6480;
+        --box:rgba(255,255,255,0.75);
+        --border:rgba(0,0,0,0.08);
         }
 
         *{box-sizing:border-box}
@@ -50,10 +49,6 @@
         transform:rotate(25deg);
         opacity:.3;
         pointer-events:none;
-        }
-
-        body.light .grid{
-        background-image:linear-gradient(rgba(0,0,0,.03)1px,transparent1px),linear-gradient(90deg,rgba(0,0,0,.03)1px,transparent1px);
         }
 
         .glow{
@@ -133,7 +128,6 @@
         color:var(--text);
         font-size:16px;
         outline:none;
-        backdrop-filter:blur(12px);
         }
 
         input:focus{
@@ -173,15 +167,11 @@
 <body>
 
 <div class="grid"></div>
-
 <div class="glow" id="glow"></div>
 
 <div class="top">
-
     <button class="btn" onclick="document.body.classList.toggle('light')">◐</button>
-
     <a class="btn" href="https://github.com/index-47/index47" target="_blank">G</a>
-
 </div>
 
 <div class="container">
@@ -189,13 +179,11 @@
     <img src="index.png">
 
     <h1>INDEX47</h1>
-
     <p>Your FTC glossary by team 13100</p>
 
     <div class="search">
 
         <input id="search" placeholder="Search Index47..." oninput="show()" onkeydown="enter(event)">
-
         <div class="suggestions" id="box"></div>
 
     </div>
@@ -210,31 +198,39 @@
     sotm:["sotm.html","Shoot on the move"],
     ri3d:["ri3d.html","Robot in 3 days"],
     lut:["lut.html","Lookup Table"]
-    swerve:["swerve.html","Swerve"]
     }
 
     function show(){
 
-    let v=search.value.toLowerCase()
+    const input=document.getElementById("search").value.toLowerCase()
+    const box=document.getElementById("box")
+
     box.innerHTML=""
-    if(!v){box.style.display="none";return}
 
-    let m=Object.keys(pages).filter(k=>k.includes(v)||pages[k][1].toLowerCase().includes(v))
+    if(!input){
+    box.style.display="none"
+    return
+    }
 
-    m.forEach(k=>{
-    let d=document.createElement("div")
+    const matches=Object.keys(pages).filter(k=>
+    k.includes(input) ||
+    pages[k][1].toLowerCase().includes(input)
+    )
+
+    matches.forEach(k=>{
+    const d=document.createElement("div")
     d.className="item"
     d.innerText=k.toUpperCase()+" — "+pages[k][1]
     d.onclick=()=>location.href=pages[k][0]
     box.appendChild(d)
     })
 
-    box.style.display=m.length?"block":"none"
+    box.style.display=matches.length?"block":"none"
     }
 
     function enter(e){
     if(e.key==="Enter"){
-    let v=search.value.toLowerCase()
+    const v=document.getElementById("search").value.toLowerCase()
     if(pages[v])location.href=pages[v][0]
     }
     }
@@ -247,5 +243,4 @@
 </script>
 
 </body>
-
 </html>
