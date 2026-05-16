@@ -54,7 +54,6 @@
             transition: 0.4s ease;
         }
 
-        /* ✨ INTERACTIVE GALAXY */
 
         .galaxy {
             position: absolute;
@@ -76,7 +75,6 @@
             transition: transform 0.08s linear;
         }
 
-        /* 🔥 concentrated cursor glow */
 
         .mouse-glow {
             position: absolute;
@@ -99,7 +97,6 @@
             filter: blur(20px);
         }
 
-        /* ✨ secondary glow */
 
         .mouse-core {
             position: absolute;
@@ -143,7 +140,6 @@
             pointer-events: none;
         }
 
-        /* 🔥 TOP BAR */
 
         .top-bar {
             position: absolute;
@@ -213,7 +209,6 @@
             display: none;
         }
 
-        /* ✨ MAIN CONTENT */
 
         .container {
             text-align: center;
@@ -323,7 +318,6 @@
             color: rgba(180,190,255,0.5);
         }
 
-        /* 🔥 SUGGESTIONS */
 
         .suggestions {
             position: absolute;
@@ -381,15 +375,12 @@
 
 <div class="grid-lines"></div>
 
-<!-- 🔥 TOP RIGHT -->
 
 <div class="top-bar">
 
-    <!-- Theme Toggle -->
 
     <button class="top-btn" onclick="toggleTheme()">
 
-        <!-- Moon -->
 
         <svg class="theme-icon moon-icon"
              xmlns="http://www.w3.org/2000/svg"
@@ -428,7 +419,6 @@
 
     </button>
 
-    <!-- GitHub -->
 
     <a class="top-btn"
        href="https://github.com/index-47/index47"
@@ -614,14 +604,12 @@
         }
     }
 
-    /* 🌙 THEME */
 
     function toggleTheme() {
 
         document.body.classList.toggle("light-mode");
     }
 
-    /* ✨ INTERACTIVE GALAXY */
 
     const galaxy =
         document.getElementById("galaxy");
