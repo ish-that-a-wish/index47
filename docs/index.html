@@ -9,207 +9,165 @@
     <style>
 
         :root {
-            --bg1: #0b1220;
-            --bg2: #05070d;
-            --text: white;
-            --blue: #6ea8ff;
-            --box: rgba(15,20,30,.75);
-            --border: rgba(0,140,255,.3);
+            --bg1:#0f1117;
+            --bg2:#090b10;
+            --text:#f5f7ff;
+            --muted:#9aa4c7;
+            --box:rgba(255,255,255,0.04);
+            --border:rgba(255,255,255,0.08);
+            --accent:#4f7cff;
         }
 
         body.light {
-            --bg1: #edf3ff;
-            --bg2: #ffffff;
-            --text: #111;
-            --blue: #3656c9;
-            --box: rgba(255,255,255,.85);
-            --border: rgba(0,110,255,.2);
+            --bg1:#edf2ff;
+            --bg2:#ffffff;
+            --text:#111827;
+            --muted:#5b6480;
+            --box:rgba(255,255,255,0.75);
+            --border:rgba(0,0,0,0.08);
+            --accent:#4f7cff;
         }
 
-        * {
-            box-sizing: border-box;
+        *{box-sizing:border-box}
+
+        body{
+        margin:0;
+        height:100vh;
+        overflow:hidden;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-family:Arial;
+        color:var(--text);
+        background:radial-gradient(circle at top,var(--bg1),var(--bg2));
         }
 
-        body {
-            margin: 0;
-            height: 100vh;
-            overflow: hidden;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            font-family: Arial, sans-serif;
-            color: var(--text);
-
-            background:
-                radial-gradient(circle,
-                var(--bg1),
-                var(--bg2));
-
-            transition: .3s;
+        .grid{
+        position:absolute;
+        inset:-50%;
+        background-image:linear-gradient(rgba(255,255,255,.02)1px,transparent1px),linear-gradient(90deg,rgba(255,255,255,.02)1px,transparent1px);
+        background-size:120px120px;
+        transform:rotate(25deg);
+        opacity:.3;
+        pointer-events:none;
         }
 
-        .grid {
-            position: absolute;
-            inset: -50%;
-
-            background-image:
-                linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-
-            background-size: 70px 70px;
-
-            transform: rotate(25deg);
+        body.light .grid{
+        background-image:linear-gradient(rgba(0,0,0,.03)1px,transparent1px),linear-gradient(90deg,rgba(0,0,0,.03)1px,transparent1px);
         }
 
-        body.light .grid {
-            background-image:
-                linear-gradient(rgba(0,0,0,.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,.04) 1px, transparent 1px);
+        .glow{
+        position:absolute;
+        width:180px;
+        height:180px;
+        border-radius:50%;
+        background:radial-gradient(circle,rgba(79,124,255,.12),transparent70%);
+        filter:blur(40px);
+        transform:translate(-50%,-50%);
+        pointer-events:none;
         }
 
-        .glow {
-            position: absolute;
-
-            width: 300px;
-            height: 300px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(circle,
-                rgba(0,140,255,.35),
-                transparent 70%);
-
-            filter: blur(20px);
-
-            pointer-events: none;
-
-            transform: translate(-50%, -50%);
+        .top{
+        position:absolute;
+        top:20px;
+        right:20px;
+        display:flex;
+        gap:10px;
         }
 
-        .top {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-
-            display: flex;
-            gap: 10px;
+        .btn{
+        width:44px;
+        height:44px;
+        border-radius:12px;
+        border:1px solid var(--border);
+        background:var(--box);
+        color:var(--text);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        cursor:pointer;
+        text-decoration:none;
+        transition:.2s;
         }
 
-        .btn {
-            width: 48px;
-            height: 48px;
-
-            border: 1px solid var(--border);
-            border-radius: 14px;
-
-            background: var(--box);
-
-            color: var(--text);
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            text-decoration: none;
-
-            cursor: pointer;
-
-            backdrop-filter: blur(10px);
-
-            transition: .2s;
+        .btn:hover{
+        transform:translateY(-2px);
+        border-color:rgba(79,124,255,.3);
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-            background: rgba(0,140,255,.15);
+        .container{
+        text-align:center;
+        z-index:2;
         }
 
-        .container {
-            text-align: center;
-            z-index: 2;
+        img{
+        width:280px;
+        filter:drop-shadow(0 10px 25px rgba(0,0,0,.3));
         }
 
-        img {
-            width: 340px;
-
-            filter:
-                drop-shadow(0 0 25px rgba(0,140,255,.45));
+        h1{
+        margin:16px 0 0;
+        letter-spacing:3px;
+        font-size:38px;
         }
 
-        h1 {
-            margin: 10px 0 0;
-
-            letter-spacing: 6px;
-            font-size: 42px;
+        p{
+        margin-top:10px;
+        color:var(--muted);
+        letter-spacing:1px;
+        font-size:15px;
         }
 
-        p {
-            margin-top: 8px;
-
-            letter-spacing: 4px;
-            color: var(--blue);
+        .search{
+        position:relative;
+        margin-top:35px;
         }
 
-        .search {
-            position: relative;
-            margin-top: 35px;
+        input{
+        width:600px;
+        max-width:85vw;
+        padding:18px 20px;
+        border-radius:14px;
+        border:1px solid var(--border);
+        background:var(--box);
+        color:var(--text);
+        font-size:16px;
+        outline:none;
+        backdrop-filter:blur(12px);
         }
 
-        input {
-            width: 600px;
-            max-width: 85vw;
-
-            padding: 22px;
-
-            border: 1px solid var(--border);
-            border-radius: 18px;
-
-            background: var(--box);
-
-            color: var(--text);
-
-            font-size: 18px;
-
-            outline: none;
-
-            backdrop-filter: blur(10px);
-
-            box-shadow:
-                0 0 30px rgba(0,140,255,.15);
+        input:focus{
+        border-color:rgba(79,124,255,.4);
         }
 
-        .suggestions {
-            position: absolute;
-
-            width: 100%;
-            margin-top: 10px;
-
-            background: var(--box);
-
-            border: 1px solid var(--border);
-            border-radius: 14px;
-
-            overflow: hidden;
-
-            display: none;
-
-            backdrop-filter: blur(10px);
+        .suggestions{
+        position:absolute;
+        width:100%;
+        margin-top:10px;
+        background:rgba(20,20,25,.92);
+        border:1px solid var(--border);
+        border-radius:12px;
+        overflow:hidden;
+        display:none;
+        backdrop-filter:blur(12px);
         }
 
-        .item {
-            padding: 14px;
-            text-align: left;
-            cursor: pointer;
+        body.light .suggestions{
+        background:rgba(255,255,255,.92);
         }
 
-        .item:hover {
-            background: rgba(0,140,255,.15);
+        .item{
+        padding:14px;
+        text-align:left;
+        cursor:pointer;
+        }
+
+        .item:hover{
+        background:rgba(79,124,255,.08);
         }
 
     </style>
+
 </head>
 
 <body>
@@ -220,15 +178,9 @@
 
 <div class="top">
 
-    <button class="btn" onclick="document.body.classList.toggle('light')">
-        ◐
-    </button>
+    <button class="btn" onclick="document.body.classList.toggle('light')">◐</button>
 
-    <a class="btn"
-       href="https://github.com/index-47/index47"
-       target="_blank">
-        G
-    </a>
+    <a class="btn" href="https://github.com/index-47/index47" target="_blank">G</a>
 
 </div>
 
@@ -242,15 +194,9 @@
 
     <div class="search">
 
-        <input
-                id="search"
-                type="text"
-                placeholder="Search Index47..."
-                oninput="showSuggestions()"
-                onkeydown="searchEnter(event)"
-        >
+        <input id="search" placeholder="Search Index47..." oninput="show()" onkeydown="enter(event)">
 
-        <div class="suggestions" id="suggestions"></div>
+        <div class="suggestions" id="box"></div>
 
     </div>
 
@@ -258,76 +204,48 @@
 
 <script>
 
-    const pages = {
-
-        opr: ["opr.html", "Offensive Power Rating"],
-        cad: ["cad.html", "Computer Aided Design"],
-        sotm: ["sotm.html", "Shoot on the move"],
-        ri3d: ["ri3d.html", "Robot in 3 days"],
-        lut: ["lut.html", "Lookup Table"]
-
-    };
-
-    function showSuggestions() {
-
-        const input =
-            search.value.toLowerCase();
-
-        suggestions.innerHTML = "";
-
-        if (!input) {
-            suggestions.style.display = "none";
-            return;
-        }
-
-        const matches =
-            Object.keys(pages).filter(key =>
-                key.includes(input) ||
-                pages[key][1].toLowerCase().includes(input)
-            );
-
-        matches.forEach(match => {
-
-            const div =
-                document.createElement("div");
-
-            div.className = "item";
-
-            div.innerText =
-                `${match.toUpperCase()} — ${pages[match][1]}`;
-
-            div.onclick = () =>
-                location.href = pages[match][0];
-
-            suggestions.appendChild(div);
-
-        });
-
-        suggestions.style.display =
-            matches.length ? "block" : "none";
+    const pages={
+    opr:["opr.html","Offensive Power Rating"],
+    cad:["cad.html","Computer Aided Design"],
+    sotm:["sotm.html","Shoot on the move"],
+    ri3d:["ri3d.html","Robot in 3 days"],
+    lut:["lut.html","Lookup Table"]
+    swerve:["swerve.html","Swerve"]
     }
 
-    function searchEnter(e) {
+    function show(){
 
-        if (e.key === "Enter") {
+    let v=search.value.toLowerCase()
+    box.innerHTML=""
+    if(!v){box.style.display="none";return}
 
-            const input =
-                search.value.toLowerCase();
+    let m=Object.keys(pages).filter(k=>k.includes(v)||pages[k][1].toLowerCase().includes(v))
 
-            if (pages[input]) {
-                location.href = pages[input][0];
-            }
-        }
+    m.forEach(k=>{
+    let d=document.createElement("div")
+    d.className="item"
+    d.innerText=k.toUpperCase()+" — "+pages[k][1]
+    d.onclick=()=>location.href=pages[k][0]
+    box.appendChild(d)
+    })
+
+    box.style.display=m.length?"block":"none"
     }
 
-    document.addEventListener("mousemove", e => {
+    function enter(e){
+    if(e.key==="Enter"){
+    let v=search.value.toLowerCase()
+    if(pages[v])location.href=pages[v][0]
+    }
+    }
 
-        glow.style.left = e.clientX + "px";
-        glow.style.top = e.clientY + "px";
-
-    });
+    document.addEventListener("mousemove",e=>{
+    glow.style.left=e.clientX+"px"
+    glow.style.top=e.clientY+"px"
+    })
 
 </script>
 
 </body>
+
 </html>
