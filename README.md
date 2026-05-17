@@ -7,8 +7,8 @@ definitions, or acroynyms. This website simply solves all of these problems!
 # CONTRIBUTING
  When contributing... determine whether you want to make a __new search__, or work on __exisiting__. 
  If __exisiting__, you can just skip these steps and make a __pull request__!
- If __new search__, __watch video__ at the bottom for a simple demonstration instead of reading all this
- 1. Ask a developer if this is an approved topic
+ If __new search__, __watch video__ at the bottom for a simple demonstration instead of reading all this, 
+ 1. Ask a developer if this is an approved topic talk in #suggestions
  2. Locate the contributing folder of index47
  3. Open the folder to reveal the template
  4. Copy all of template.html and paste it into a new file, name it [Search].html within the docs folder, not contributing
