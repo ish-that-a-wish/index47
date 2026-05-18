@@ -1,6 +1,6 @@
 
 # ABOUT
-Index47 was started in May of 2026 by programmers on 13100 47 Beavers. It is now run and maintained by many FTC members! 
+Index47 was started in May of 2026 by programmers on 13100 47 Beavers. It is now run and maintained by many more FTC members as well! 
 This was started through observations that many people in the FTC community are not always caught up with references,
 definitions, or acronyms. This website simply solves all of these problems!
 
