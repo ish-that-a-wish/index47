@@ -9,6 +9,8 @@ definitions, or acronyms. This website simply solves all of these problems!
 2. Send a message in #suggestion-addtions about what contribution you are making, use example
 3. Follow steps below for contributing on an existing search or making a new search
 4. Wait for approval from developer
+5. If embedding links, use this format
+ <img width="373" height="13" alt="Screenshot 2026-05-18 2 08 57 PM" src="https://github.com/user-attachments/assets/a60b0573-42d4-414f-b3e8-c71dbc5e5c69" />
    ### **Contribute to Existing search, UI, or micellanous**
              1. Make sure all general contributing steps are completed above
              2. Fork Index47
@@ -23,7 +25,7 @@ definitions, or acronyms. This website simply solves all of these problems!
              6. Go through all the written comments and adapt them to your search including images and url embeds
              7. Go to index.html inside the docs folder, at line 62, add your search to the list as shown
              8. Create a pull request to main
-             https://github.com/user-attachments/assets/e9083a9b-de35-41aa-8cfe-98a61b04b3f6
+https://github.com/user-attachments/assets/e9083a9b-de35-41aa-8cfe-98a61b04b3f6
 
 
 
@@ -32,7 +34,6 @@ definitions, or acronyms. This website simply solves all of these problems!
  Embedding links can **only** happen within the text box description. If needed, do so at any point in the description:
  Make sure the second link usage does not have extra characters, just the base URL.
             
- <img width="466" height="62" alt="image" src="https://github.com/user-attachments/assets/def1fb60-d108-407e-b7ee-e3504397f70e" />
 
 
 
